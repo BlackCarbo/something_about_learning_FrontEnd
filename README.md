@@ -11,8 +11,8 @@
 #### GitHub 是一种软件项目的托管平台。先看官网的[教程](https://guides.github.com/activities/hello-world/)，把账号注册了（~~名字可以想个帅气点的~~），再把前面做的网页上传到上面，并且生成可以直接浏览的页面。方法大概像[这样](https://blog.csdn.net/zeroyulong/article/details/80499878)。遇到问题再去百度上找找。
 ### 2.2. NVM 和 Nodejs
 #### NVM 是管理 Node 版本的工具。不同项目可能支持的 Node 版本不同，所以需要切换到不同到Node版本，所以可以先装一个 NVM，需要先卸载已安装的 Node。Windows 系统可以安照这个[教程](https://www.jianshu.com/p/d0e0935b150a),用 NVM 安装 Node 也比较方便。这里有一篇是 Node 的简单[介绍](https://www.jqhtml.com/7258.html)。
-### 2.3. 好用的 Crome
-#### 不管是日常使用还是前端调试，都推荐使用 [Crome](https://www.google.cn/intl/zh-CN/chrome/) 浏览器。这篇[《前端chrome浏览器调试总结》](https://www.jianshu.com/p/b25c5b88baf5)可以好好看看。
+### 2.3. 好用的 Chrome
+#### 不管是日常使用还是前端调试，都推荐使用 [Chrome](https://www.google.cn/intl/zh-CN/chrome/) 浏览器。这篇[《前端chrome浏览器调试总结》](https://www.jianshu.com/p/b25c5b88baf5)可以好好看看。
 ### 2.4. 简单但是强大的 Sublime Text3
 #### 我一直是用这个文本编辑器的，所以就推荐这款。平时做一些笔记或者编写前端的HTML、JS代码都很方便。直接到[官网](http://www.sublimetext.com)下载，上不了再到其他网站上找资源。使用很简单，一些快捷键自己网上搜搜就有了，我说一个自己遇到的问题。 Sublime 要安装其他插件需要先安装一个 [Package Control](https://packagecontrol.io) ,可以先看一下[安装方法](https://www.cnblogs.com/yangzhuanzheng/p/8896380.html)。我最初使用粘贴命令方法下载，由于国外的网站所以一直下不成功，但是文件目录下已经出来一个 0kb 的 Package Control 文件，需要把它删除了，再进行下载。或者就到其他地方下载这个文件然后拷贝到软件的对应目录下。这个安装好后就可以安装[很多方便的插件](https://github.com/jaywcjlove/awesome-mac/blob/master/editor-plugin-zh.md#sublime-text-plugin)了。
 ### 2.5. Webstorm 还是 VS Code
@@ -26,7 +26,7 @@
 ### 2.8. Markdown语言
 #### Markdown 是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。在GitHub上看别人的项目都会有一个 README.md 文件，作为项目的说明文档。包括你现在看到的这篇也是我用 Markdown 语言现学现写的，非常简单，网上教程也很多。
 ### 2.9. 其他
-#### 其他一些软件就自己探索吧，Crome 上有一个网页尺子的插件，取色的插件，PS什么的自己看情况研究研究。
+#### 其他一些软件就自己探索吧，Chrome 上有一个网页尺子的插件，取色的插件，PS什么的自己看情况研究研究。
 ---
 ## 3. 一些网站和文章
 ### 3.1. 一些学习网站和有趣的网站
