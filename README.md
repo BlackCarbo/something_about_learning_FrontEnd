@@ -54,6 +54,11 @@
 #### · [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 #### · [初探Promise](https://segmentfault.com/a/1190000007032448)
 #### · [Awesome Mac](https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md)
+### 3.3. 自己当时总结了些东西
+#### . [前端面试的一些总结](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/FaceTest.txt)
+#### . [JS常用函数](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/jsfun.txt)
+#### . [JS数组操作](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/JS数组操作.png)
+#### . [其它一些问题](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/Q&A.txt)
 ---
 ## 尾声
 #### 前端之路漫漫，大家共同学习共同进步，看到什么比较好的文章、有了什么比较好的经验，多多交流分享。
