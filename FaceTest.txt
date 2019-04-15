@@ -1,0 +1,675 @@
+<!-JS-->
+1、JS是基于对象的、事件驱动的语言。所谓对象是指任何事物都可以封装成类，而一个类中具体的对象就是这个类对象。
+
+2、字符串操作：
+	(1)求字符串长度：str.length
+    (2)字符串赋值：
+    (3)连接字符串："+";array.join("")
+    (4)求子字符串：str.slice(start,end);str.substring(start,end);str.substr(start,length)
+    (5)字符串比较：
+    (6)字符串定位：str1.indexOf(str2)
+    (7)字符串插入：str1.splice(index,0,str1)
+    (8)字符串删除：str1.splice(index,length)
+    (9)字符串替换：str.replace()
+    (10)eval函数：eval(str)把字符串当作JS表达式去执行。
+
+3、JS数据类型：
+    (1)基本数据类型：字符串(String)、数字(Number)、布尔(Boolean)、数组(Array)、空(Null)、未定义(Undefined)。
+    (2)引用类型数据：Object 、Array 、Function 、Data等。
+    (3)判断方法：typeof x;Object.prototype.toString.call(x); [].constructor==Array
+
+4、刷新页面：
+	(1)location.reload([bForceGet])。bForceGet=false，从客户端缓存中去当前页面；bForceGet=true，以get方式从服务端获取最新页面。
+	(2)location.replace(URL)。以指定的URL替代当前页面，不能使用前进后退返回原始页面。
+
+5、DOM节点问题：
+	(1)获得节点：document.getElementById();document.getElementsByClassName;document.getElementsByTagName;
+	(2)创建节点：document.createElement()
+	(3)删除节点：document.body.removeChild()
+	(4)添加节点：appendChild()
+	(5)复制节点：cloneNode()
+	(6)插入节点-jQuery：insertAfter();append();appendTo()
+
+6、BOM与DOM：
+	(1)BOM是浏览器对象模型，描述了与浏览器进行交互的方法和接口。BOM的核心是Window，window包含了document。
+	(2)DOM是文档对象模型，描述了处理网页内容的方法和接口。document对象是DOM模型的根节点。
+
+7、数组操作：
+	(1)求数组长度：array.length
+	(2)添加元素：array.push();array.unshift()
+	(3)删除元素：array.pop();array.shift()
+	(4)数组拼接：array.concat(arrayX,arrayX,......,arrayX)
+	(5)数组排序：array.sort(()=>{...})
+	(6)数组逆序：array.reverse()
+	(7)求子数组：array.slice(start,end);array.splice(index,howmany,item1,.....,itemX)
+
+8、prototype与_proto_：
+	(1)prototype是函数才有的属性；_proto_是每个对象都有的属性。
+	(2)将属性添加为prototype的属性，将被该类型创建的所有实例共享。对象在读取属性时，先查看自身是否有此属性，若没有则向prototype获得。
+	(3)_proto_指向创建此对象的方法中的prototype。
+	(4)原型链：_proto_是任何对象都有的属性，不断访问_proto_将形成一条链，并最终指向null。
+
+9、constructor：
+	构造函数在对象创建或实例化时调用的方法。构造器constructor不能被继承，不能overriding，可以overloading。对象的constructor属性返回创建该对象的函数引用。
+
+10、argument：
+    所有函数都有argument对象，包含了函数要调用的参数。它是一个object，不是数组。可用方法有length，index等，但不能用push，pop。
+
+11、this指向：this指向的是调用它的对象，只在调用时决定
+	(1)在对象的方法里调用，this指向调用该方法的对象。
+	(2)构造函数里的this指向创建出来的实例。
+	(3)除此之外，this指向window。
+	(4)特殊的apply调用。this指向它的第一个参数；当apply参数为空时this指向全局对象。
+
+12、改变this指向：
+	(1)改变this的指向并且执行调用函数
+	.call()-->call(thisScope, arg1, arg2, arg3...)
+	.apply()-->apply(thisScope, [arg1, arg2, arg3...]);
+	(2)而bind 改变this的指向，返回的是函数
+	.bind()-->bind(thisScope, arg1, arg2, arg3...)
+
+13、call、apply和bind：
+	call、apply、bind的作用是改变函数运行时this的指向。bind返回对应函数，便于稍后调用；apply，call则是立即调用。除此外，在ES6的箭头函数下,call和apply将失效。
+	(1)call 方法第一个参数是要绑定给this的值，后面传入的是一个参数列表。当第一个参数为null、undefined的时候，默认指向window。
+	(2)apply接受两个参数，第一个参数是要绑定给this的值，第二个参数是一个参数数组。当第一个参数为null、undefined的时候，默认指向window。
+	(3)bind和call很相似，第一个参数是this的指向，从第二个参数开始是接收的参数列表。区别在于bind方法返回值是函数以及bind接收的参数列表的使用。bind方法不会立即执行，而是返回一个改变了上下文this后的函数。而原函数printName中的this并没有被改变，依旧指向全局对象window。
+
+14、创建函数的方法：
+    (1)函数申明：function foo(){}
+    (2)函数表达式：var foo = function(){}
+
+15、创建一个对象：
+	(1)原始方法。通过new关键字生成对象，再为对象添加属性和方法。
+	(2)工厂方法。将(1)封装成函数，返回对象。提高了代码重用率。
+	(3)构造函数方法。使用this关键字赋予属性，使用new创建对象。
+	(4)原型方法。函数内所有的属性赋予prototype属性，使用new创建对象。
+	(5)混合方法。构造函数(3)+原型(4)。
+	(6)动态原型方法。与(5)相似。
+
+16、事件绑定、事件冒泡、事件捕获和事件委托:
+	(1)事件绑定:嵌入dom[onclick="function()"]； 直接绑定[.onclick = function(){}]； 事件监听[.addEventListener()/.attachEvent()]。
+	(2)事件捕获指的是从document到触发事件的那个节点，即自上而下的去触发事件。相反的，事件冒泡是自下而上的去触发事件。
+	(3)绑定事件方法的第三个参数，就是控制事件触发顺序是否为事件捕获。true,事件捕获；false,事件冒泡。默认false,即事件冒泡。
+	(4)e.preventDefault()阻止默认行为。 Jquery的e.stopPropagation会阻止冒泡.
+	(5)事件委托：利用事件冒泡将自己触发的事件交给父元素执行。
+
+17、钩子函数和回调函数：
+	(1)钩子函数是在捕获消息的时候立即执行函数。btn.onclick = () => {}
+	(2)回调函数其实就是调用者把回调函数的函数指针传递给调用函数，在整个捕获过程结束时执行。btn.addEventListener("click",() =>{});
+
+18、JS同步与异步：
+	(1)同步任务指的是，在主线程上(execution context stack)排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。
+	(2)异步任务指的是，通过回调函数实现的，即在主线程执行完当前的任务栈（所有的同步操作），主线程空闲后轮询任务队列，并将任务队列中的任务（回调函数）取出来执行。
+	(3)事件循环(Event Loop)所做的事情就是观察stack和任务队列。 当stack为空时，就将任务队列中的第一个东西取出并push到stack中。
+
+19、Promise函数：
+	(1)Promise的目的是为了给异步编程提供统一接口，实现了回调函数的链式写法。提高了代码可读性，提高了程序的可扩展性。
+	(2)格式：
+		new Promise(
+	  		/* 执行器 executor */
+		    function(resolve, reject){
+		        //一段异步操作
+		        resolve(); //数据处理完成，状态变为成功
+		        reject();  //数据处理出错，状态变为失败
+			}
+		)   //Promise的状态只会发生一次改变，发生改变时，会触发then()里的响应函数
+		    .then(function A(){
+		        //成功时执行
+		    },function B(){
+		        //失败时执行
+	    });
+	(3)三种状态：等待(pending)、已完成(fulfilled)、已拒绝(rejected)。一个promise的状态只可能从“等待”转到“完成”态或者“拒绝”态。
+	(4)promise必须实现then方法，并接受两个参数，分别是成功和失败后的回调。
+
+20、Ajax事件：
+	(1)Ajax是异步的JavaScript和XML，是实现网页异步更新的一种方法。Ajax最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。
+	(2)缺点：不支持返回；安全性差，暴露了与服务器交互细节；
+	(3)Ajax模板：
+		// 新建XMLHttpRequest对象
+		var request = new XMLHttpRequest(); 
+		// 状态发生变化时，函数被回调
+		request.onreadystatechange = function () { 
+	    if (request.readyState === 4) { // 成功完成
+	        // 判断响应结果:
+	        if (request.status === 200) {
+	            // 成功，通过responseText拿到响应的文本:
+	            return success(request.responseText);
+	        } else {
+	            // 失败，根据响应码判断失败原因:
+	            return fail(request.status);
+	        }
+	    } else {
+	        // HTTP请求还在继续...
+	    }
+		// 发送请求:
+		request.open('GET', '/api/categories');
+		request.send();
+	(3)onreadystatechange 事件:每当 readyState 改变时，就会触发 onreadystatechange 事件。readyState 属性存有 XMLHttpRequest 的状态信息。
+    (4)readyState 状态:
+    	0: 请求未初始化
+		1: 服务器连接已建立
+		2: 请求已接收
+		3: 请求处理中
+		4: 请求已完成，且响应已就绪
+	(5)status 状态:
+		200：服务器响应正常。
+		301：永久移动。
+		302：临时移动。
+		304：未修改。（这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意）。
+		400：无法找到请求的资源。
+		401：访问资源的权限不够。
+		403：没有权限访问资源。
+		404：需要访问的资源不存在。
+		405：需要访问的资源被禁止。
+		407：访问的资源需要代理身份验证。
+		414：请求的URL太长。
+		500：服务器内部错误。
+	(6)http请求方式：
+		GET：向特定的资源发出请求。它本质就是发送一个请求来取得服务器上的某一资源。
+		POST：向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。
+		PUT:向指定资源位置上传其最新内容。
+		DELETE：请求服务器删除Request-URL所标识的资源。
+		OPTIONS：返回服务器针对特定资源所支持的HTTP请求方法。
+		HEAD：向服务器索与GET请求相一致的响应，只不过响应体将不会被返回。
+		TRACE：回显服务器收到的请求，主要用于测试或诊断。
+		CONNECT：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
+
+21、Get与Post：
+	(1)效率。Get从服务器获取数据（也可以上传数据，参数为上传的数据），效率较高；Post可以向服务器发送数据和下载数据，效率不如Get。
+	(2)缓存。Get 请求能够被缓存，默认的请求方式也是有缓存的；Post请求默认不会缓存。
+	(3)安全性。Get的所有参数全部包装在URL中，明文显示，且服务器的访问日志会记录，非常不安全；Post的URL中只有资源路径，不包含参数，参数封装在二进制的数据体中，服务器也不会记录参数，相对安全。所有涉及用户隐私的数据都要用Post传输。
+	(4)数据量。Get的数据量较小，一般限制在2~8K之间；Post提交的数据比较大，大小靠服务器的设定值限制，PHP默认是2M。
+
+22、闭包：
+	(1)Javascript允许使用内部函数---即函数定义和函数表达式位于另一个函数的函数体内。而且，由于词法作用域机制，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。
+	(2)闭包好处：一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。模拟私有属性方法。
+	(3)闭包坏处：浪费内存。
+
+23、同源策略：
+	(1)同源是指协议[http/https]、端口号[:xx]、域名[.com/.edu]都相同。
+	(2)同源策略只允许访问来自同一站点的资源，防止来自其它站点的恶意攻击。
+	(3)通过跨域方法可访问其它站点的内容。
+
+24、跨域：
+	(1)jsonp跨域。通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。
+	(2).domain跨域。把一个页面和它里面的iframe页面的document.domain都设成自身或更高一级的父域，且主域必须相同。
+	(3)CORS跨域。使用自定的HTTP头部与服务器进行沟通，从而由服务器决定响应是否成功。客户端在open方法中传入绝对URL，服务端在响应头部中设置Access-Control-Allow-Origin即可让客户端访问
+	(4)window.name跨域。在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限。
+	(5)postMessage跨域。otherWindow.postMessage(message, targetOrigin);第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符 *  。
+	(6)Server Proxy服务器代理。由本域服务器请求跨域服务器（服务端不存在同源策略，也就不存在跨不跨域这一说），然后将得到的信息发送给前端。
+	
+25、鼠标事件：
+	(1)鼠标点击事件：onclick()
+	(2)鼠标穿过事件：mouseover()穿过被选元素或其子元素是触发；mouseenter()穿过被选元素触发。
+	(3)鼠标离开事件：mouseout()离开被选元素或其子元素是触发；mouseleave()离开被选元素触发。
+
+26、页面加载完成事件：
+	(1)ready。表示文档结构加载完成(不包括图片等非文字媒体文件)。
+	(2)onload。表示页面包含图片等文件再内的所有元素都加载完成。
+
+
+
+----------------------------------------------
+
+----------------------------------------
+Vue：
+	(1)Vue.js是MVVM模式的库，Vue核心只关注视图层。Vue尽可能简单的实现响应数据的绑定和组合。
+	(2)用法是new出一个vue实例，通过实例的el属性绑定对应的DOM元素的作用域（一个Vue实例只能绑定一个el）。使用{{...}}（双大括号模板）进行文本插值，通过修改vue实例的数据可以动态改变作用域内的数据。
+	(3)常用指令：
+		v-if：控制切换一个元素创建与销毁，可与v-else连用。
+		v-show：元素被渲染，只是切换显隐。
+		v-for：可以绑定数组的数据来渲染一个列表。
+		v-on：指令添加一个事件监听器。可以绑定多种类型的方法，但绑定多个同类型的方法时只有一个有效。
+		v-bind：用于绑定属性和数据。
+		v-model：能实现表单输入和应用状态之间的双向绑定。
+		
+	(4)计算属性 vs 方法 vs监听器：
+		computed：计算属性是基于它们的依赖进行缓存的。只在相关依赖发生改变时它们才会重新求值。
+		methods：每当触发重新渲染时，调用方法将总会再次执行函数。
+		watch：响应数据的变化，适合当需要在数据变化时执行异步或开销较大的操作。
+	(5)过度：使用时将v改成对应标签的name值，若未设定name值则使用v-。
+		v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+		v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
+		v-enter-to: 2.1.8版及以上 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。
+		v-leave: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
+		v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
+		v-leave-to: 2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。
+	(6)混入：
+		混入(mixins)是使一些功能在Vue组件中复用的方式。混入对象可以包含任意组件选项。
+	(7)render函数：
+		render方法的实质就是生成template模板，它能提供完全的JS编程。
+	(8)vue-router是Vue.js官方的路由插件，vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。
+		创建组件：
+		创建Router：new VueRouter()
+		映射路由：调用router的map方法映射路由
+		使用v-link指令：在a元素上使用v-link指令跳转到指定路径。
+		使用<router-view>标签：用于渲染匹配的组件。
+		启动路由：router.start(App, '#app') 表示router会创建一个App实例，并且挂载到#app元素。
+
+JQuery：
+	(1)jQuery是一个轻量级JS库，极简化了JS编程，但本质上还是对JS语言进行包装处理。
+	(2)$是jQuery的一个别名，通过$符号去绑定DOM节点，并提供了许多操作元素的方法和事件函数。
+	(3)强大的选择器，浏览器兼容性好，插件丰富。
+	(4)通过jQuery，可以把动作/方法链接在一起。如需链接一个动作，您只需简单地把该动作追加到之前的动作上。
+	用JS实现链式操作：其实原理很简单，就是每次方法执行完后返回this对象。
+	//创建一个类
+	function Person(){};
+	//在原型上定义相关方法
+	Person.prototype ={
+	  setName:function(){
+	    this.name = name;
+	    return this;
+	  },
+	  setAge:function(){
+	    this.age = age;
+	    return this;
+	  }
+	}
+
+Nodejs:
+	(1)nodejs将JS用于后端服务器开发。
+	(2)npm其实是Node.js的包管理工具（package manager）。通过npm命令可以安装使用他人开发的开源模块。
+	(3)打开GitBash后，直接输入node进入交互模式，可以直接输入代码命令立即执行。或者输入npm+.js文件可运行整个js文件代码。
+	(4)直接对module.exports赋值为需要导出的模块，使用require导入模块。
+	(5)常用模块：
+		fs模块就是文件系统模块，负责读写文件；
+		path模块处理本地文件目录；
+		http模块提供HTTP服务器程序相关的方法；
+		mocha是JavaScript的一种单元测试框架
+
+Git：
+	(1)创建版本库:
+		$ mkdir learngit   //mkdir命令用于创建目录
+		$ cd learngit      //cd命令用于切换到指定目录
+		$ pwd              //pwd命令用于显示当前目录。
+		$ git init         //把这个目录变成Git可以管理的仓库
+	(2)添加文件到版本库：
+		$ git add <file>            //add将文件移入临时stage
+		$ git commit -m <message>   //commit将stage内所有文件移入master
+	(3)查看状态：
+		$ git status   //status命令用于查看当前状态
+		$ git diff     //diff命令用于查看当前具体修改值
+		$ git log      //log命令显示从最近到最远的提交日志
+		$ git reflog   //reflog命令查看命令历史
+		$ cat <file>   //cat命令查看仓库内文件内容
+	(4)撤销修改：
+		$ git checkout -- <file>    //直接丢弃工作区的修改，回到修改前
+		$ git reset HEAD <file>     //若以将工作区的文件修改并add到暂存区，需要先使用此命令回到add前的状态，再使用上条命令。
+	(5)版本退回：
+		$ git reset --hard HEAD^       //上一个版本写HEAD^，上上一个版本写HEAD^^，往上100个版本写成HEAD~100。
+		$ git reset --hard commit_id   //commit_id为使用log查看某一版本的commit值，只写前几位即可
+	(6)删除文件：
+		$ rm <file>     //先删除工作区内文件
+		$ git rm <file>              //确定需要删除，则将版本库内文件删除
+		$ git checkout -- <file>     //若发现工作区内文件不需要删除，用版本库里的版本替换工作区的版本
+	(7)
+	(8)
+
+WebPack：
+	(1)WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。
+	(2)Webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包为一个（或多个）浏览器可识别的JavaScript文件。
+	(3)
+	(4)
+	(5)
+
+gulp:
+
+Grunt:
+
+
+Sass/Scss&Less:
+	(1)Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，语法跟css一样(但多了些功能)，比css好写，而且更容易阅读。Sass语法类似与Haml，属于缩排语法（makeup），用意就是为了快速写Html和Css。 
+	(2)Scss(Sassy CSS)。与原来的语法兼容，只是用{}取代了原来的缩进。
+	(3)Less一种动态样式语言. 将CSS赋予了动态语言的特性，如变量，继承，运算， 函数. LESS 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可一在服务端运行 (借助 Node.js)。less英文站需要外网，也可以访问中文站 
+	(4)区别：
+		1.Sass是基于Ruby的，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出Css到浏览器，也可以在开发环节使用Less，然后编译成Css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 
+		2.变量符不一样，less是@，而Scss是$，而且变量的作用域也不一样，后面会讲到。 
+		3.输出设置，Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。 
+		4.Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。
+	(5)共同特征:
+		1.变量 :允许我们单独定义通用的样式，这样可以在css中调用。 
+		@color:#4d926f; 
+		#header{ 
+		  color:@color; 
+		} 
+		2.混合 
+		混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承class A中的所有属性。我们还可以带参数地调用，就像使用函数一样。 
+		Less 混合 
+		.rounded-corners (@radius: 5px) { 
+		  border-radius: @radius; 
+		  -webkit-border-radius: @radius; 
+		  -moz-border-radius: @radius; 
+		} 
+		#header { 
+		  .rounded-corners; 
+		} 
+		#footer { 
+		  .rounded-corners(11px); 
+		} 
+		3.嵌套 
+		我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。 
+		#header { 
+		  h1 { 
+		    font-size: 26px; 
+		    font-weight: bold; 
+		  } 
+		  p { font-size: 12px; 
+		    a { text-decoration: none; 
+		      &:hover { border-width: 1px } 
+		    } 
+		  } 
+		} 
+		3.函数&运算 
+		运算提供了加，减，乘，除操作；我们可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。 
+		@the-border: 1px; 
+		@base-color: #111; 
+		@red:        #842210; 
+		#header { 
+		  color: @base-color * 3; 
+		  border-left: @the-border; 
+		  border-right: @the-border * 2; 
+		} 
+--------------------------------------------------
+<!-HTML5+CSS3-->
+1、HTML5：
+	(1)更多的语义化标签。
+	(2)良好的媒体支持。
+	(3)跨文档消息通信。
+	(4)canvas标签。
+	(5)Web Sockets。
+	(6)客户端存储。Web Storage和Web SQL Database API。
+	(7)强大的表单。
+
+2、CSS3：
+	(1)更强大的选择器。
+	(2)更多的渲染效果。
+	(3)animation & transform 。
+
+3、HTML5新标签：
+	(1)结构标签
+		section：独立内容区块，可以用h1~h6组成大纲，表示文档结构，也可以有章节、页眉、页脚或页眉的其他部分；
+		article：特殊独立区块，表示这篇页眉中的核心内容；
+		aside：标签内容之外与标签内容相关的辅助信息；
+		header：某个区块的头部信息/标题；
+		hgroup：头部信息/标题的补充内容；
+		footer：底部信息；
+		nav：导航条部分信息；
+		figure：独立的单元，例如某个有图片与内容的新闻块。
+	(2)表单标签
+		email：必须输入邮件；
+		url：必须输入url地址；
+		number：必须输入数值；
+		range：必须输入一定范围内的数值；
+		Date Pickers：日期选择器；
+			a.date：选取日、月、年
+			b.month：选取月、年
+			c.week：选取周和年
+			d.time：选取时间(小时和分钟)
+			e.datetime：选取时间、日、月、年(UTC时间)
+			f.datetime-local：选取时间、日、月、年(本地时间)
+		search：搜索常规的文本域；
+		color：颜色。
+	(3)媒体标签
+		video：视频；
+		audio：音频；
+		embed：嵌入内容（包括各种媒体），Midi、Wav、AU、MP3、Flash、AIFF等。
+	(4)其他功能标签
+		mark：标注，高亮显示（像荧光笔做笔记）；
+		progress：进度条；<progress max="最大进度条的值" value="当前进度条的值">；
+		time：数据标签，给搜索引擎使用；发布日期<time datetime="2014-12-25T09:00">9：00</time>更新日期<time datetime="2015- 01-23T04:00" pubdate>4:00</time>；
+		ruby和rt：对某一个字进行注释；<ruby><rt>注释内容</rt><rp>浏览器不支持时如何显示</rp></ruby>；
+		wbr：软换行，页面宽度到需要换行时换行；
+		canvas：使用JS代码做内容进行图像绘制；
+		command：按钮；
+		deteils ：展开菜单；
+		dateilst：文本域下拉提示；
+		keygen:加密。
+
+4、CSS3选择器：
+	(1)动态伪类选择器。[:link/:visited/:hover/:active/:focus]
+	(2)状态伪类选择器。[:checked/:enabled/:disabled]
+	(3):nth选择器。
+		:first-child选择某个元素的第一个子元素；
+		:last-child选择某个元素的最后一个子元素；
+		:nth-child()选择某个元素的一个或多个特定的子元素；
+		:nth-last-child()选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；
+		:nth-of-type()选择指定的元素；
+		:nth-last-of-type()选择指定的元素，从元素的最后一个开始计算；
+		:first-of-type选择一个上级元素下的第一个同类子元素；
+		:last-of-type选择一个上级元素的最后一个同类子元素；
+		:only-child选择的元素是它的父元素的唯一一个了元素；
+		:only-of-type选择一个元素是它的上级元素的唯一一个相同类型的子元素；
+		:empty选择的元素里面没有任何内容。
+
+	(4)伪元素选择器。
+		::first-line选择元素的第一行。
+		::first-letter选择文本块的第一个字母。
+		::before和::after这两个主要用来给元素的前面或后面插入内容。
+		::selection用来改变浏览网页选中文的默认效果
+
+5、Position(定位)：
+	(1)static。默认值，元素出现在正常的流中。静态定位的元素不会受到 top, bottom, left, right影响。
+	(2)relative。相对定位元素的定位是相对其正常位置，会占用原有位置空间。
+	(3)absolute。绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>。元素的位置与文档流无关，因此不占据空间。
+	(4)fixed。元素的位置相对于浏览器窗口是固定位置。元素的位置与文档流无关，因此不占据空间。
+	(5)sticky。粘性定位的元素是依赖于用户的滚动。它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed。
+
+6、弹性盒布局：
+	(1)当页面需要适应不同的屏幕大小以及设备类型时确保元素拥有恰当的行为的布局方式。
+	(2)弹性盒子由弹性容器(Flex container)和弹性子元素(Flex item)组成。
+	(3)弹性容器通过设置 display:flex/inline-flex 将其定义为弹性容器。
+	(4)常用属性:
+		排列方向[flex-direction: row | row-reverse | column | column-reverse]
+		是否多行[flex-wrap: nowrap | wrap | wrap-reverse]
+		简写形式[flex-flow: <flex-direction> <flex-wrap>]
+		纵轴对齐[align-items: stretch | center | flex-start | flex-end | baseline]
+		横轴对齐[justify-content:  center | flex-start | flex-end | space-between | space-around]
+
+7、一边宽度固定，一边自适应宽度：
+	(1)固定宽度区浮动，自适应区不设宽度而设置 margin-left/margin-right
+	(2)固定宽度区使用绝对定位position: absolute，自适应区不设宽度而设置 margin-left/margin-right
+	(3)把wrap设为display:table并指定宽度100%,然后把content+sidebar设为display:table-cell;然后只给sidebar指定一个宽度，那么content的宽度就变成自适应了。
+	(4)
+
+8、块级元素：
+	(1)iv、p、h1~h6、ul、ol、dl、li、dd、table、hr、blockquote、address、table、menu、pre，HTML5新增的header、section、aside、footer等
+	(2)特点：
+		总在新行上开始；
+		高度、行高、内外边距可控；
+		宽度默认是它的容器的100%；
+		可容纳内联元素和其它块元素。
+	行内元素：
+	(1)span、img、a、lable、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block）
+	(2)特点：
+		和其它元素在同一行；
+		高度和外边距不可变；
+		宽度由文字图片撑起，不可变；
+		只能容纳文本或者其它内联元素。
+
+9、浮动和清除浮动：
+	(1)浮动元素会脱离文档流并向左/向右浮动，直到碰到父元素或者另一个浮动元素。
+	(2)浮动会脱离文档流，导致父元素高度坍塌，存在盖住普通元素的风险。
+	(3)clear属性不允许被清除浮动的元素的左边/右边挨着浮动元素，底层原理是在被清除浮动的元素上边或者下边添加足够的清除空间。不要在浮动元素上清除浮动。
+	(4)BFC清除浮动：给父元素添加以下属性来触发BFC：
+		✦ float : left | right
+		✦ overflow : hidden | auto | scorll
+		✦ display : table-cell | table-caption | inline-block | flex | inline-flex
+		✦ position : absolute | fixed
+
+10、居中问题：
+	(1) line-height 使单行文本垂直居中
+	(2) text-align 水平居中
+	(3) margin 设置auto
+	(4) vertical-align 设置图片垂直居中(行内元素)
+	(5) 使用绝对定位来实现居中:left 或 top 的属性设置为50% ，使用负的 margin-left 和 margin-top 。
+
+11、H5的缓存机制：
+	(1)LocalStorage。只能使用键值对字符串的方式进行存储，是永久性的本地缓存，存储在客户端的浏览器上，除非主动删除，是不会过期的。
+		API基本使用方法：
+			localStorage.setItem() 存储
+			localStorage.getItem() 获取数据，其中使用localStorage.valueOf()获取全部数据
+			localStorage.removeItem(key) 删除数据
+			localStorage.clear()清空全部数据，localStorage.length 获取本地存储数据数量
+			localStorage.key(N)获取第N个数据的key键值
+	(2)SessionStorage。用于本地存储一个会话中的数据，这些数据只有在同一个会话中的页面才能访问并且会话结束，窗口关闭后，数据就会消失。是一种会话级别的存储。
+	(3)cookie。cookie的存储数据大小要求不能超过4k，每次的http请求都会携带cookie，在浏览器和服务器端来回传递；cookie可设置有效生命周期；cookie在所有同源窗口中也是可以共享；
+	(4)webstorage。webstorage将数据保存在本地，只作用在客户端的浏览器，减少不必要的请求，能快速显示数据。它可以传输更大的数据，可以长久保存在本地。
+
+12、Doctype-严格模式与混杂模式：
+    (1)<!DOCTYPE>声明叫做文件类型定义（DTD），声明的作用为了告诉浏览器该文件的类型。
+    (2)严格模式：又称标准模式，是指浏览器按照 W3C 标准解析代码。
+    (3)混杂模式：又称怪异模式或兼容模式，是指浏览器用自己的方式解析代码。
+    (4)区分：
+    	如果文档包含严格的DOCTYPE，那么它一般以严格模式呈现。
+    	DOCTYPE 不存在或形式不正确会导致文档以混杂模式呈现。
+    	HTML5 没有严格模式与混杂模式的区别。
+
+13、回流(reflows)与重绘(repaints):
+    (1)repaint是某个dom元素进行重绘，reflow是整个页面进行重排，也就是对页面所有的dom元素渲染。
+    (2)reflow的性能消耗要比repaint的大。
+    (3)repaint的触发：
+        不涉及任何dom元素的排版问题的变动为repaint，color的修改，text-align的修改，a：hover也会造成重绘，伪类引起的颜色等变化不会导致页面的回流，仅仅会触发重绘。
+    (4)reflow的触发：
+        1）width、height、border、margin、padding的修改
+		2）通过hover造成元素表现的改动，如display:none会导致回流
+		3）appendChild等dom元素操作。
+		4）font类style 的修改。
+		5)background的修改，现在经过浏览器厂家的优化，部分background的修改只会触发repaint。
+   	(5)避免回流reflow：
+	   	a、尽可能在dom末稍通过修改class来修改元素的style属性，尽可能减少受影响的dom元素。
+		b、避免设置多项内联样式，使用常用的class方式进行设置样式，以避免设置样式时访问dom的低效率。
+		c、设置动画元素position属性为fixed或absolute：由于当前元素从dom流中独立出来，因此受影响的只有当前元素。
+		d、牺牲平滑度满足性能：动画精度太强，会造成更多的repaint/reflow，牺牲精度，能满足性能的损耗，获取性能和平滑度的平衡。
+		f、避免使用table进行布局，table每个元素的大小以及内容的改变，都会导致整个table进行重新计算，造成大幅度的repaint或者reflow。改用div则可以针对性的repaint和避免不必要的reflow。
+		g、避免在css中使用运算式
+
+14、响应式布局：
+	(1)响应式网页设计就是一个网站能够兼容多个终端-而不是为每个终端做一个特定的版本。
+	(2)步骤：布局及设置meta标签->通过媒体查询来设置样式media query->设置多种视图宽度->字体图片设置。
+	(3)优点：适应不同分辨率设备，灵活性强。
+	(4)缺点：效率低、代码累赘、加载时间长。
+
+15、web worker:
+	(1)web worker是在后台运行的JavaScript，允许主线程创建 Worker 线程，独立于其它脚本，不会影响页面的性能。
+	(2)同源限制：分配给 Worker 线程运行的脚本文件，必须与主线程的脚本文件同源。
+	(3)DOM 限制：Worker 线程无法读取主线程所在网页的 DOM 对象，也无法使用document、window、parent这些对象。但是，Worker 线程可以navigator对象和location对象。
+	(4)通信联系：Worker 线程和主线程不在同一个上下文环境，它们不能直接通信，必须通过消息完成。
+
+16、浏览器差异：
+	(1)使用Trident内核的浏览器：IE、Maxthon、TT、The World等；
+    (2)使用Gecko内核的浏览器：Netcape6及以上版本、FireFox、MozillaSuite/SeaMonkey；
+    (3)使用Presto内核的浏览器：Opera7及以上版本；
+    (4)使用Webkit内核的浏览器：Safari、Chrome。
+
+17、MVC和MVVM模式的区别：
+	(1)MVC(Model-View-Controller):用一种业务逻辑、数据、界面显示分离的方法组织代码。[用户操作-> View (负责接受用户的输入操作)->Controller(业务逻辑处理)->Model(数据持久化)->View(将结果通过View反馈给用户)]
+	(2)MVVM(Model-View-ViewModel):主要目的是分离视图(View)和模型(Model)。数据驱动视图模型。由于VIewModel与View之间的双向绑定，操作了ViewModel中的数据（当然只能是监控属性），就会同步到DOM，我们透过DOM事件监控用户对DOM的改动，也会同步到ViewModel。
+    (3)MVVM优点：方便测试；便于代码的移植；更专注于独立开发。
+
+18、meta标签中http-equiv属性：
+	(1)Expires(期限):可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。 
+	(2)Pragma(cache模式):禁止浏览器从本地计算机的缓存中访问页面内容。
+	(3)Refresh(刷新):自动刷新并指向新页面。
+	(4)Set-Cookie(cookie设定):如果网页过期，那么存盘的cookie将被删除。
+	(5)Window-target(显示窗口的设定):强制页面在当前窗口以独立页面显示。
+	(6)content-Type(显示字符集的设定)
+	(7)content-Language（显示语言的设定）
+	(8)Cache-Control:指定请求和响应遵循的缓存机制。
+	(9)
+
+19、页面加载速度优化的方法：
+	(1)优化图片。合并小图片、优化图片格式(GIF、JPG、PNG)、一些图片效果用css3代替。
+	(2)根据设备屏幕分辨率选择加载哪种质量的图片。
+	(3)预加载。像幻灯片、轮播图这类可以预先加载后几项图片。像淘宝类网站，可以根据图片实际坐标与当前显示页面的位置关系判断是否可以优先加载。
+	(4)代码优化。精简代码，移除不必要的字符(空格，换行、制表符)。封装方法，增加代码可复用性。避免CSS表达式。
+	(5)CSS代码放在开头，JS代码放在尾部。
+	(6)使用外部的JavaScript和CSS，让本地缓存这些文件。之后的申请只需要请求HTML文件，再判断CSS和JS有没有更新版本就好。
+	(7)使用 cdn 加载第三方资源。
+	(8)使用 Ajax 进行异步的更新。
+	(9)使用webpack中的import()、require.ensure()或者一些loader(例如Bundle Loader)来做代码拆分与组件按需加载。
+	(10)
+	(11)
+
+-----------------------------------
+<!-计算机网络-->
+1、访问网站流程：
+	(1)浏览器在域名系统服务器上找出存放网页的服务器的实际地址。
+	(2)浏览器发送 HTTP 请求信息到服务器来请拷贝一份网页到客户端。
+	(3)服务器同意客户端的请求后，会返回一个“200 OK”信息，然后开始将网页的文件以数据包的形式传输到浏览器。
+	(4)浏览器将数据包聚集成完整的网页然后将网页呈现给你。
+
+	ARP是地址解析协议
+	(1)输入网址后，系统会查询本地hosts文件及DNS缓存信息，查找是否存在网址对应的IP解析记录。如果有就直接获取到IP地址，然后访问网站。
+	(2)如果客户端没有对应的IP解析，请求其它的DNS服务器进行地址解析。
+	(3)客户端拿到解析的IP后，将信息添加到本地，并开始向IP地址对应的Web服务器发起访问请求。
+	(4)Web服务器接收到客户的请求并响应处理，将客户请求的内容返回给客户端浏览器。
+
+2、TCP3次握手，4次断开：
+	(1)“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。
+	(2)“四次挥手”因为TCP有个半关闭状态，假设A.B要释放连接，那么A发送一个释放连接报文给B，B收到后发送确认，这个时候A不发数据，但是B如果发数据A还是要接受，这叫半关闭。然后B还要发给A连接释放报文，然后A发确认，所以是4次。
+
+3、time_wait状态：
+	(1)client端会出现time_wait状态
+	(2)保证可靠的终止TCP连接。 保证让迟来的TCP报文段有足够的时间被识别并丢弃。
+
+4、TCP和UDP的区别：
+	(1)TCP是传输控制协议，提供的是面向连接、可靠的字节流服务。通信双方彼此交换数据前，必须先通过三次握手协议建立连接，之后才能传输数据。TCP提供超时重传，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。
+	(2)UDP是用户数据报协议，是一个简单的面向无连接的协议。UDP不提供可靠的服务。在数据数据前不用建立连接故而传输速度很快。UDP主要用户流媒体传输，IP电话等对数据可靠性要求不是很高的场合。
+
+5、TCP/IP的流量控制：
+	利用滑动窗口实现流量控制，流量控制就是让发送方的发送速率不要太快，要让接收方来得及接收。
+
+6、TCP拥塞控制：
+	(1)防止过多的数据注入到网络中，这样可以使网络中的路由器或链路不致过载。
+	(2)方法：慢开始、拥塞避免、快重传和快恢复。
+	
+7、ICMP协议：
+	(1)因特网控制报文协议。用于在IP主机、路由器之间传递控制消息。
+	(2)ICMP报文有两种：差错报告报文和询问报文。
+
+8、地址？
+	(1)私有IP（保留）：
+	A类：10.0.0.0——10.255.255.255
+	B类：172.16.0.0——172.31.255.255
+	C类：192.168.0.0——192.168.255.255
+	(2)公有IP：
+	A: 0.0.0.1  -- 126.255.255.255
+	B: 128.0.0.0--191.255.255.255
+	C: 192.0.0.0--223.169.255.255
+
+9、TTL指生存时间：
+	数据包在网络中的时间，经过一个路由器后TTL就减一，这样TTL最终会减为0，当TTL为0时，则将数据包丢弃
+
+10、路由表：
+	(1)路由表是用来决定如何将一个数据包从一个子网传送到另一个子网的。路由表的每一行至少有目标网络号、子网掩码、到这个子网应该使用的网卡
+	(2)静态路由是由管理员手工配置的，适合比较简单的网络或需要做路由特殊控制。而动态路由则是由动态路由协议自动维护的，适合比较复杂大型的网络。
+	(3)
+
+11、长连接和短连接：
+	(1)长连接:当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的 TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接。
+	(2)短连接:浏览器和服务器每进行一次HTTP操作，就建立一次连接，但任务结束就中断连接。
+
+12、各个层的网络协议：
+	(1)应用层：HTTP协议、SMTP协议、FTP协议、DNS、POP3、SNMP、Telnet等。
+	(2)运输层：传输控制协议TCP、用户数据包协议UDP。
+	(3)网络层：IP、ICMP、IGMP、ARP、RARP。
+	(4)数据链路层：FDDI、PPP、PDN等。
+	(5)物理层：IEEE。
+
+
+
+
+
+
+------------------------------------
+<!-数据结构与算法-->
+1、排序算法：
+	(1)稳定：插冒归基；不稳定：快选堆希
+	(2)冒泡：平均时间O(n^2)；空间O(1)。
+	(3)插入：平均时间O(n^2)；空间O(1)。
+	(4)快速：平均时间O(nlogn)；空间O(logn)。
+	(5)选择：平均时间O(n^2)；空间O(1)。
+	(6)归并：平均时间O(nlogn)；空间O(n)。
+	(7)希尔：平均时间O(n^1.3)；空间O(1)。
+	(8)堆：平均时间O(nlogn)；空间O(1)。
+	(9)基数：平均时间O(d(n+r))；空间O(r)。

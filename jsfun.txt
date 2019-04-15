@@ -1,0 +1,447 @@
+牛客网在线JS编程---输入输出
+while(line = readline()){
+    var lines = line.split(" ");
+    var a = lines[0];//获取第一个字符串
+    var b = lines[1];//获取第二个字符串
+    print(a+" "+b);
+}
+//字符串最后一个单词的长度
+/*计算字符串最后一个单词的长度，单词以空格隔开。
+输入描述: 一行字符串，非空，长度小于5000。
+输出描述: 整数N，最后一个单词的长度。
+输入：hello world
+输出：5 */
+//字符串最后一个单词的长度
+var readline=require("readline");
+const r1=readline.createInterface({
+    input:process.stdin,
+    output:process.stdout
+});
+r1.on('line',function(line){
+    //找到数组中最后一个空格
+    var lastSpacebar = line.lastIndexOf(" ");
+    //用splice获取最后一个字符串
+    var lastWord = line.slice(lastSpacebar+1);
+    console.log(lastWord.length);
+});
+//多行输入
+var readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+const lines = [];
+rl.on("line", function(line) {
+    //将输入放到新建的空数组中
+    lines.push(line);
+    //判断，如果输入的行数等于某一值时
+    if (lines.length === 2){
+        //通过数组索引分别得到数组中每一行的数据，并做相应操作
+        const num1 = lines[0].split(' ').sort(function(a,b) {return b-a;});
+        const num2 = lines[1];        
+        // console.log(num1);
+        // console.log(num2);
+        console.log(num1[num2-1]);
+    }
+});
+--------------------------------------------------
+typeof 操作符
+
+typeof "John"                // 返回 string
+typeof 3.14                  // 返回 number
+typeof false                 // 返回 boolean
+typeof [1,2,3,4]             // 返回 object
+typeof {name:'John', age:34} // 返回 object
+typeof undefined             // undefined
+typeof null                  // object
+
+----------------------------------------------
+Object.prototype.toString.call()  方法
+
+var gettype=Object.prototype.toString
+    gettype.call('aaaa')          //    [object String]
+	gettype.call(2222)            //    [object Number]
+	gettype.call(true)            //    [object Boolean]
+	gettype.call(undefined)       //    [object Undefined]
+	gettype.call(null)            //    [object Null]
+	gettype.call({})              //    [object Object]
+	gettype.call([])              //    [object Array]
+	gettype.call(function(){})    //    [object Function]
+----------------------------------------------
+parseInt() 方法
+
+定义: parseInt() 函数可解析一个字符串，并返回一个整数。
+语法: parseInt(string, radix)
+string	必需。要被解析的字符串。
+radix	可选。表示要解析的数字的基数。该值介于 2 ~ 36 之间。
+        如果省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。
+        如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。
+parseInt("10");			//返回 10
+parseInt("19",10);		//返回 19 (10+9)
+parseInt("11",2);		//返回 3 (2+1)
+parseInt("17",8);		//返回 15 (8+7)
+parseInt("1f",16);		//返回 31 (16+15)
+parseInt("010");		//返回 10 
+parseInt(010);          //返回 8
+
+----------------------------------------------
+parseFloat() 方法
+
+定义： parseFloat() 函数可解析一个字符串，并返回一个浮点数。 
+语法： parseFloat(string)      
+
+注释： 开头和结尾的空格是允许的。如果在解析过程中遇到了正负号（+ 或 -）、数字 (0-9)、小数点，
+      或者科学记数法中的指数（e 或 E）以外的字符，则它会忽略该字符以及之后的所有字符，
+      返回当前已经解析到的浮点数。
+提示：如果字符串的第一个字符不能被转换为数字，那么 parseFloat() 会返回 NaN。
+提示：如果只想解析数字的整数部分，请使用 parseInt() 方法。 
+
+---------------------------------------------
+Number() 函数
+
+Number(false)	0
+Number(true)	1
+Number(undefined)	NaN
+Number(null)	0
+Number("")      0
+Number([])      0
+Number("1.2")	1.2
+Number("12")	12
+Number("1.2.3")	NaN
+Number(new object())	NaN
+---------------------------------------------
+Boolean() 函数
+
+var b1 = Boolean("");		//false - 空字符串
+var b2 = Boolean("hello");		//true - 非空字符串
+var b1 = Boolean(50);		//true - 非零数字
+var b1 = Boolean(null);		//false - null
+var b1 = Boolean(0);		//false - 零
+var b1 = Boolean(new object());	//true - 对象
+
+-----------------------------------------------
+toString() 方法
+
+arrayObject.toString()    //把数组转换为字符串，并返回结果。
+booleanObject.toString()  //把一个逻辑值转换为字符串，并返回结果。
+dateObject.toString()     //把 Date 对象转换为字符串，并返回结果。
+NumberObject.toString(radix)  //把一个 Number 对象转换为一个字符串，并返回结果。
+                       radix	可选。规定表示数字的基数，使 2 ~ 36 之间的整数。
+                       若省略该参数，则使用基数 10。但是要注意，
+                       如果该参数是 10 以外的其他值，则 ECMAScript 标准允许实现返回任意值。
+-----------------------------------------------
+indexOf() 方法
+
+定义: indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+语法: stringObject.indexOf(searchvalue,fromindex);
+
+searchvalue	必需。规定需检索的字符串值。
+fromindex	可选的整数参数。规定在字符串中开始检索的位置。
+            它的合法取值是 0 到 stringObject.length - 1。
+            如省略该参数，则将从字符串的首字符开始检索。
+注释：indexOf() 方法对大小写敏感！
+注释：如果要检索的字符串值没有出现，则该方法返回 -1。
+
+----------------------------------------------
+slice() 方法
+
+定义: slice() 方法可从已有的数组中返回选定的元素。不修改原数组，而是返回一个新数组。
+语法: arrayObject.slice(start,end)
+
+start  必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。
+       也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+end    可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。
+       如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。
+       如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。
+返回值: 返回一个新的数组，包含从start到end（不包括该元素）的arrayObject中的元素。
+注释：您可使用负值从数组的尾部选取元素。
+注释：如果 end 未被规定，那么 slice() 方法会选取从 start 到数组结尾的所有元素。
+
+-----------------------------------------------
+splice() 方法
+
+定义: splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。 
+语法: arrayObject.splice(index,howmany,item1,.....,itemX)
+
+index	必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+howmany	必需。要删除的项目数量。如果设置为 0，则不会删除项目。
+item1, ..., itemX	可选。向数组添加的新项目。
+
+注释：该方法会改变原始数组。
+
+--------------------------------------------------
+substr() 方法
+
+定义: substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符。
+语法: stringObject.substr(start,length)
+
+返回值: 一个新的字符串，包含从stringObject的start（包括start所指的字符）处开始的length个字符。
+
+--------------------------------------------------
+substring() 方法
+
+定义: substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+语法: stringObject.substring(start,stop)
+
+说明: substring() 方法返回的子串包括 start 处的字符，但不包括 stop 处的字符。
+      如果参数 start 与 stop 相等，那么该方法返回的就是一个空串（即长度为 0 的字符串）。
+      如果 start 比 stop 大，那么该方法在提取子串之前会先交换这两个参数。
+--------------------------------------------------
+push() 方法
+
+定义: push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+语法: arrayObject.push(newelement1,newelement2,....,newelementX)
+
+返回值: 把指定的值添加到数组后的新长度。
+注释： push() 方法不创建新的数组，而是直接修改原有的数组。
+
+--------------------------------------------------
+pop() 方法
+
+定义: pop() 方法用于删除并返回数组的最后一个元素。
+语法: arrayObject.pop()
+
+返回值: arrayObject 的最后一个元素。
+注释： 如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。
+
+--------------------------------------------------
+shift() 方法
+
+定义: shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+语法: arrayObject.shift()
+
+返回值: 数组原来的第一个元素的值。
+注释： 如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。
+
+----------------------------------------------------
+unshift() 方法
+
+定义: unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。
+语法: arrayObject.unshift(newelement1,newelement2,....,newelementX)
+
+返回值: arrayObject 的新长度。
+注释： unshift() 方法不创建新的数组，而是直接修改原有的数组。
+
+----------------------------------------------------
+concat() 方法
+
+定义: concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+语法: arrayObject.concat(arrayX,arrayX,......,arrayX)
+
+返回值: 返回一个新的数组。该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。
+
+----------------------------------------------------
+setInterval() 方法
+
+定义: setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
+setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。
+语法: setInterval(function(){ alert("Hello"); }, 3000);
+
+返回值:	返回一个 ID（数字），可以将这个ID传递给clearInterval()，clearTimeout() 以取消执行。
+
+----------------------------------------------------
+clearInterval() 方法
+
+定义： clearInterval() 方法可取消由 setInterval() 函数设定的定时执行操作。
+用法：
+var myVar = setInterval(function(){ myTimer() }, 1000);
+function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("demo").innerHTML = t;
+}
+function myStopFunction() {
+    clearInterval(myVar);
+}
+
+--------------------------------------------------
+setTimeout() 方法
+
+定义: setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。
+语法: setTimeout(function(){ alert("Hello"); }, 3000);
+
+返回值:	返回一个 ID（数字），可以将这个ID传递给 clearTimeout() 来取消执行。
+
+-------------------------------------------------------
+clearTimeout() 方法
+
+定义： clearTimeout() 方法可取消由 setTimeout() 方法设置的定时操作。
+用法：
+var myVar; 
+function myFunction() {
+    myVar = setTimeout(function(){ alert("Hello"); }, 3000);
+} 
+function myStopFunction() {
+    clearTimeout(myVar);
+}
+
+-----------------------------------------------------
+sort方法：
+	arr.sort(function(a,b){
+		return a-b;//从小到大
+	});
+	arr.sort((a,b)=>{a-b});//从小到大
+
+--------------------------------------
+arguments 得到的是函数传入参数，通过下列方法可以返回参数的数组。
+function dds(){
+    let k = Array.prototype.slice.apply(arguments，0);//
+    return k;
+}
+
+------------------------------------------------------
+//获得浏览器URL中查询字符串的参数
+function getuery(name){
+	var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r != null) return unescape(r[2]);
+	return null;
+}
+
+-------------------------------------------------------
+//删除字符串左边空白字符的方法
+function leftTrim(str){
+	return str.replace(/^\s*/g,"");
+}
+
+------------------------------------------------------
+//字符串反转
+function revStr(str){
+	var tmpStr = "";
+	for(var l=str.length-1;l>=0;l--){
+		tmpStr += str.charAt(l);
+	}
+	return tmpStr;
+}
+var str = "abcdefg";
+console.log(revStr(str));
+
+----------------------------------------------------------
+//三种弹出式消息提醒
+alert();   //----警告框
+confirm(); //----确认框
+prompt();  //----输入框
+
+
+---------------------------------------------
+input框内文字长度设置：
+	size  规定以字符数计的 <input> 元素的可见宽度
+	maxlength	规定 <input> 元素中允许的最大字符数
+
+文字超过div（或者input框等）宽度用省略号显示css
+input{
+    width: 50px;  /*必须设置宽度*/
+    overflow: hidden;  /*溢出隐藏*/
+    text-overflow: ellipsis; /*以省略号...显示*/
+    white-space: nowrap;  /*强制不换行*/
+}
+
+
+--------------------- 
+事件绑定:嵌入dom[onclick="function()"]； 直接绑定[.onclick = function(){}]； 事件监听[.addEventListener()/.attachEvent()]。
+document.getElementById("btn1").addEventListener("click",hello);
+function hello(){
+ alert("hello world!");
+}
+
+事件委托：
+<ul id="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+window.onload = function(){
+    var oUl = document.getElementById("ul1");
+    oUl.onclick = function(){
+        alert(123);
+    }
+}
+
+-------------------------------------------------
+// promise 与 Ajax 结合
+// ajax函数将返回Promise对象:
+function ajax(method, url, data) {
+    var request = new XMLHttpRequest();
+    return new Promise(function (resolve, reject) {
+        request.onreadystatechange = function () {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    resolve(request.responseText);
+                } else {
+                    reject(request.status);
+                }
+            }
+        };
+        request.open(method, url);
+        request.send(data);
+    });
+}
+
+var log = document.getElementById('test-promise-ajax-result');
+var p = ajax('GET', '/api/categories');
+p.then(function (text) { // 如果AJAX成功，获得响应内容
+    log.innerText = text;
+}).catch(function (status) { // 如果AJAX失败，获得响应代码
+    log.innerText = 'ERROR: ' + status;
+});
+
+---------------------------------------
+用JS来动态设置CSS样式，常见的有以下几种：
+
+	1. 直接设置style的属性  某些情况用这个设置 !important 值无效
+	如果属性有'-'号，就写成驼峰的形式（如textAlign）  如果想保留 - 号，就中括号的形式  element.style['text-align'] = '100px';
+	element.style.height = '100px';
+
+	2. 直接设置属性（只能用于某些属性，相关样式会自动识别）
+	element.setAttribute('height', 100);
+	element.setAttribute('height', '100px');
+
+	3. 设置style的属性
+	element.setAttribute('style', 'height: 100px !important');
+
+	4. 使用setProperty  如果要设置!important，推荐用这种方法设置第三个参数
+	element.style.setProperty('height', '300px', 'important');
+
+	5. 改变class   比如JQ的更改class相关方法
+	因JS获取不到css的伪元素，所以可以通过改变伪元素父级的class来动态更改伪元素的样式
+	element.className = 'blue';
+	element.className += 'blue fb';
+
+	6. 设置cssText
+	element.style.cssText = 'height: 100px !important';
+	element.style.cssText += 'height: 100px !important';
+
+
+
+----------------------------------
+水平居中
+	设置元素为文本或者图片等行内元素时，可以通过 text-align:center; 实现。
+
+	当设置的元素为块状元素时，text-align:center; 就不起作用了，这时候分两种情况： 
+	1) 定宽块状元素 
+	通过设置左右 margin 为 auto 即可实现。margin:0 auto;
+
+	2) 不定宽块状元素 
+	方法一： 
+	① 加入 table 标签； 
+	② 设置 display:inline 方法，然后 text-align:center 实现。与第一种类似，显示类型设为行内元素； 
+	优势：不用增加无语义标签 
+	缺点：变成了行内元素，少了一些功能，例如长度。 
+	③ 设置 position:absolute 和 left 50%，利用相对定位的方式，将元素左偏移50%；
+
+垂直居中
+	父元素确定高度的单行文本。
+	通过设置 line-height 与 height 相同的值即可完成。 
+	line-height 与 font-size 的计算之差，在 CSS 中称为“行间距”，分为两半，分别加到一个文本内容的顶部和底部。 
+	缺点：当文字内容的长度大于块的宽时，就有内容脱离了块。
+
+	父元素高度确定的多行文本。 
+	1) 使用 padding-top 和 padding-bottom 来居中。 
+	利用父元素高度减去文本高度，所得的值平分到 top bottom，达到居中的目的。
+
+	2) 使用插入 table (包括 tbody tr td) 标签，同时设置 vertical-align:middle (在父元素设置此样式时，会对 inline-block) 类型的子元素都有用。
+
+	3) 在 chrome firefox IE8 以上的浏览器下可以设置块级元素的 display 为 table-cell (设置为表格单元显示)，激活 vertical-align:middle 属性，但 IE6 IE7 并不支持。 
+	优点：不用加多余的无意义的标签 
+	缺点：兼容性差，且修改了 display 的 block 变成了 table-cell，破坏了原有的块状元素的性质。
