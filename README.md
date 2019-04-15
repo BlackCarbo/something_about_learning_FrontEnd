@@ -1,7 +1,7 @@
 # Something About Learning FrontEnd
 ### [1. 先做几个基础题](https://github.com/BlackCarbo/something_about_learning_FrontEnd#1-%E5%85%88%E5%81%9A%E5%87%A0%E4%B8%AA%E5%9F%BA%E7%A1%80%E9%A2%98)
 ### [2. 一些常用的方法工具](https://github.com/BlackCarbo/something_about_learning_FrontEnd#2-%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E5%B7%A5%E5%85%B7)
-### [3. 一些网站和文章](https://github.com/BlackCarbo/something_about_learning_FrontEnd#2-%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E5%B7%A5%E5%85%B7)
+### [3. 一些网站和文章](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/README.md#3-%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E5%92%8C%E6%96%87%E7%AB%A0-1)
 ## 1. 先做几个基础题
 ### 1.1. 页面布局：最上面是一个 banner，下面左边固定宽度，右边自适应宽度。
 ### 1.2. 在上面基础上添加功能。右边一共有上中下三块内容，第一块做图片自动/手动切换功能；第二块做两个输入框，第一个框输入一个关键字，第二个框任意输入文字，当出现关键字时，立即将关键字显示成红色；第三块做一个实时时间显示，做一个选择框可以选择时间显示方式，做一个下拉列表可选择显示时区（随便选几个时区）。
