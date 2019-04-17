@@ -55,7 +55,9 @@
 #### · [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 #### · [初探Promise](https://segmentfault.com/a/1190000007032448)
 #### · [Awesome Mac](https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md)
-### 3.3. 自己当时总结了些东西
+### 3.3. 找到的一些特效
+#### . [30种css3 animation页面加载等待动画特效](http://www.17sucai.com/pins/demo-show?id=13948)
+### 3.4. 自己当时总结了些东西
 #### . [前端面试的一些总结](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/FaceTest.txt)
 #### . [JS常用函数](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/jsfun.txt)
 #### . [JS数组操作](https://github.com/BlackCarbo/something_about_learning_FrontEnd/blob/master/JS数组操作.png)
