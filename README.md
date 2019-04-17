@@ -45,6 +45,7 @@
 #### · [Element](http://element-cn.eleme.io/#/zh-CN) --基于 Vue 2.0 的前端组件库。
 #### · [CodePen](https://codepen.io) --一个在线的前端代码编辑运行的网站。
 #### · [Web安全色](http://www.bootcss.com/p/websafecolors/) --Web安全色可以了解一下。
+#### . [BEM](https://en.bem.info/) --BEM命名思想等
 ### 3.2. 几篇看过觉得还不错的博文
 #### · [ECMAScript 6 入门](http://es6.ruanyifeng.com)
 #### · [学习CSS布局](http://zh.learnlayout.com)
