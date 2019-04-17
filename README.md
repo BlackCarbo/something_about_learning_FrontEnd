@@ -49,6 +49,9 @@
 ### 3.2. 几篇看过觉得还不错的博文
 #### · [ECMAScript 6 入门](http://es6.ruanyifeng.com)
 #### · [学习CSS布局](http://zh.learnlayout.com)
+#### · [如何规范书写 CSS](https://www.jianshu.com/p/799c06a249c1)
+#### · [【WEB前端】CSS书写规范](https://www.cnblogs.com/Lxb98117/p/W3c-norm.html)
+#### · [前端人员必看CSS命名规范](http://www.86y.org/art_detail.aspx?id=740)
 #### · [三张图搞懂JavaScript的原型对象与原型链](https://www.cnblogs.com/shuiyi/p/5305435.html)
 #### · [Javascript面向对象三大特性（封装性、继承性、多态性）详解及创建对象的各种方法](https://www.cnblogs.com/yanayana/p/6781166.html)
 #### · [js之事件冒泡和事件捕获详细介绍](https://www.cnblogs.com/wu-web/p/6804514.html)
