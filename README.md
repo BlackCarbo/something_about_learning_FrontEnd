@@ -59,6 +59,7 @@
 #### · [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 #### · [初探Promise](https://segmentfault.com/a/1190000007032448)
 #### · [Awesome Mac](https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md)
+#### · [Vue项目前后端联调（使用proxyTable实现跨域）](https://www.jianshu.com/p/d42fcb9b7213)
 ### 3.3. 找到的一些特效
 #### . [30种css3 animation页面加载等待动画特效](http://www.17sucai.com/pins/demo-show?id=13948)
 ### 3.4. 自己当时总结了些东西
