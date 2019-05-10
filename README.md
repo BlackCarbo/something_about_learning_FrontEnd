@@ -62,6 +62,7 @@
 #### · [Vue项目前后端联调（使用proxyTable实现跨域）](https://www.jianshu.com/p/d42fcb9b7213)
 #### · [mac 中git操作账号的保存与删除](https://www.cnblogs.com/Mr-Rshare/p/10734260.html)
 #### · [Vue 开发调试阶段如何解决跨域?](https://www.mmxiaowu.com/article/584820e1d4352863efb55458)
+#### · [Vue中watch的详细用法](https://www.jianshu.com/p/a3d1829c3ca1)
 ### 3.3. 找到的一些特效
 #### . [30种css3 animation页面加载等待动画特效](http://www.17sucai.com/pins/demo-show?id=13948)
 ### 3.4. 自己当时总结了些东西
