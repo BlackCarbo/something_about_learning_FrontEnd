@@ -64,6 +64,7 @@
 #### · [Vue 开发调试阶段如何解决跨域?](https://www.mmxiaowu.com/article/584820e1d4352863efb55458)
 #### · [Vue中watch的详细用法](https://www.jianshu.com/p/a3d1829c3ca1)
 #### · [Vuex 学习总结](https://www.cnblogs.com/libin-1/p/6518902.html)
+#### · [js 实现纯前端将数据导出excel两种方式](https://blog.csdn.net/hhzzcc_/article/details/80419396)
 ### 3.3. 找到的一些特效
 #### . [30种css3 animation页面加载等待动画特效](http://www.17sucai.com/pins/demo-show?id=13948)
 ### 3.4. 自己当时总结了些东西
